@@ -25,7 +25,7 @@ $result = $conn->query($sql);
 if ($result->num_rows == 1) {
     // Redirect to stu.html if login is successful
     // echo "Hello";
-	header("Location: student.html");
+	header("Location: student.php");
 
     exit();
 } else {

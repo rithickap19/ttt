@@ -1,17 +1,8 @@
+
+
+
 <?php
-// Database connection parameters
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "ttt";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require('dbcon.php');
 
 $username = $_POST['sid'];
 $password = $_POST["password"];
@@ -23,7 +14,7 @@ $result = $conn->query($sql);
 if ($result->num_rows == 1) {
     // Redirect to stu.html if login is successful
     
-	 header("Location: teacher.html");
+	 header("Location: admin_panel/index.php");
 
     exit();
 } else {
