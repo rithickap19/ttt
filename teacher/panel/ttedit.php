@@ -7,7 +7,11 @@ if(!empty($_SESSION["id"])){
 }
 else
 echo "No";
+
+
 ?>
+
+
 
 
 <!doctype html>
@@ -17,7 +21,7 @@ echo "No";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
+    <title>TimeTable Update</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-row">
@@ -31,11 +35,11 @@ echo "No";
   background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
 }
         </style>
-        <h1> Enter Your Time Table </h1>
+        <h1> Update Your Time Table </h1>
 
         
         <form action="ttupdate.php" method="post">
-        <input type="text" name="sid" value=" <?php echo $row['staffid']; ?>">
+        <!-- <input type="text" name="sid" value=" <?php echo $row['staffid']; ?>"> -->
     <div class="container text-center">
   <div class="row row-cols-6">
     <div class="col">   Day/Period</div>

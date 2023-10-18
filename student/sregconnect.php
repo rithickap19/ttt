@@ -1,30 +1,30 @@
 <?php
-$fname=$_POST['fname'];
-$sname=$_POST['sname'];
-$phone=$_POST['phone'];
-$rollno=$_POST['rollno'];
-$staffpwd=$_POST['stupwd'];
-$dob=$_POST['dob'];
-$dept=$_POST['dept'];
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "ttt";
 
-$conn=new mysqli('localhost','root','','ttt') ; 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+if(isset($_POST['tsubmit'])){
+    
+$name=mysqli_real_escape_string($conn,$_POST['name']);
+$phone=mysqli_real_escape_string($conn,$_POST['phone']);
+$password=mysqli_real_escape_string($conn,$_POST['password']);
+$sid=mysqli_real_escape_string($conn,$_POST['sid']);
+$dob=mysqli_real_escape_string($conn,$_POST['dob']);
+$dept=mysqli_real_escape_string($conn,$_POST['dept']);
 
 
 
-if($conn->connect_error)
-{
-    die('Connection failed:' .$conn->connect_error);
-}
-else{
-
-    $stmt=$conn->prepare("insert into sreg(fname,sname,phone,rollno,stupwd,dept,dob) values(?,?,?,?,?,?,?)");
-    $stmt   ->bind_param("ssiissi",$fname,$sname,$phone,$rollno,$staffpwd,$dept,$dob);
+    $stmt=$conn->prepare("insert into sreg(name,phone,rollno,stupwd,dept,dob) values(?,?,?,?,?,?)");
+    $stmt   ->bind_param("siissi",$name,$phone,$sid,$password,$dept,$dob);
     $stmt   ->execute();
-    header("location: student.html");
+    header("location:slog.html");
     $stmt->close();
     $conn->close();
 }
- ?>
+
+?>

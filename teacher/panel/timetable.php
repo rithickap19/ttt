@@ -7,6 +7,8 @@ if(!empty($_SESSION["id"])){
 }
 else
 echo "No";
+
+
 ?>
 
 
@@ -29,11 +31,58 @@ echo "No";
             height: 100vh;
   width: 100%;
   background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+        }
+  .container {
+    display: flex;
+    
+}
+
+.hover-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hover-button:hover {
+    background-color: #45a049;
+}
+
+.hover-box {
+    display: none;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 20px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.hover-button:hover + .hover-box {
+    display: block;
+}
+
 }
         </style>
-        <h1> Enter Your Time Table </h1>
+        <h1> Enter Your Time Table </h1><div class="container">
+        <button class="hover-button" click="disabled">Instruction</button>
+        <div class="hover-box">Enter Your Free Periods as "free" </div>
+    </div>
         <form action="ttstore.php" method="post">
-          <input type="text" name="sid" value="<?php echo $row['stid'];?>">
+          <!-- <input  name="sid" value="<?php echo $row['stid'];?>"> -->
+
+
+          
     <div class="container text-center">
   <div class="row row-cols-6">
     <div class="col">   Day/Period</div>

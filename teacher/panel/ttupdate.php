@@ -1,7 +1,9 @@
 <?php
 require 'dbcon.php';
 $mysqli = new mysqli("localhost","root","","ttt");
-if(isset($_POST['ttsubmit'])){
+if(isset($_POST['ttsubmit']))
+{
+    $sid=$_SESSION['id'];
     $m1=mysqli_real_escape_string($conn,$_POST['m1']);
     $m2=mysqli_real_escape_string($conn,$_POST['m2']);
     $m3=mysqli_real_escape_string($conn,$_POST['m3']);

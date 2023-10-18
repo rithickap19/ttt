@@ -14,7 +14,7 @@ require '../teacher/panel/dbcon.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
+    <title>Student Panel</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body class="p-3 m-0 border-0 bd-example m-0 border-0 bd-example-row">
@@ -25,33 +25,24 @@ require '../teacher/panel/dbcon.php';
  
             height: 100vh;
   width: 100%;
-  background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+  background: linear-gradient(-10deg, #9f01ea 10%,  #56d8e4  90%);
+  
 }
-        </style>
+      
+      </style>
         <h1> </h1>
 
         
         <form class="" action="" method="post">
-        <!-- <hide><input type="text" name="id" value=" <?php echo $_GET['id'];?>">
-        <button type="submit">submit</button> -->
-
+       
         <?php
-$id=$_GET['id'];
-// $id=$_POST['id'];
-$sql="SELECT * FROM timetable WHERE staffid= $id ";
+$sid=$_GET['id'];
+$sql="SELECT * FROM timetable WHERE staffid= $sid ";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_assoc($result);
 ?>
 
-
-
-
-
-
-
-
-
-
+<div id="tb">
     <div class="container text-center">
   <div class="row row-cols-6">
     <div class="col">   Day/Period</div>
@@ -99,12 +90,20 @@ $row=mysqli_fetch_assoc($result);
     <div class="col"><?php echo $row['fp4'];?></div>
     <div class="col"><?php echo $row['fp5'];?></div>
 
+
     
     
     
-        
+</div> 
+
   </div>
 </div>
 </from>
+<br>
+<h1>
+  <span>Break Time: 11 AM to 11.15 AM </span>
+  <button name="book">Book</button>
+  
+</h1>
   </body>
 </html>

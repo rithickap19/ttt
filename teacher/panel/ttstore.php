@@ -2,6 +2,7 @@
 require 'dbcon.php';
 
 if(isset($_POST['ttsubmit'])){
+    $id=$_SESSION['id'];
     $m1=mysqli_real_escape_string($conn,$_POST['m1']);
     $m2=mysqli_real_escape_string($conn,$_POST['m2']);
     $m3=mysqli_real_escape_string($conn,$_POST['m3']);
@@ -37,16 +38,17 @@ if(isset($_POST['ttsubmit'])){
 
 
 
-
     $stmt=$conn->prepare("INSERT INTO timetable (staffid,mp1,mp2,mp3,mp4,mp5,tp1,tp2,tp3,tp4,tp5,wp1,wp2,wp3,wp4,wp5,thp1,thp2,thp3,thp4,thp5,fp1,fp2,fp3,fp4,fp5) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $stmt   ->bind_param("isssssssssssssssssssssssss",$sid,$m1,$m2,$m3,$m4,$m5,$t1,$t2,$t3,$t4,$t5,$w1,$w2,$w3,$w4,$w5,$th1,$th2,$th3,$th4,$th5,$f1,$f2,$f3,$f4,$f5);
+    $stmt   ->bind_param("isssssssssssssssssssssssss",$id,$m1,$m2,$m3,$m4,$m5,$t1,$t2,$t3,$t4,$t5,$w1,$w2,$w3,$w4,$w5,$th1,$th2,$th3,$th4,$th5,$f1,$f2,$f3,$f4,$f5);
     $stmt   ->execute();
 
 header("location: teacher.php");
 $stmt->close();
+
 $conn->close();
 
 }
+
 ?>
 
 

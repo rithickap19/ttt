@@ -31,7 +31,7 @@ body{
             <div class="col-md-12">
                 <div class="card mt-4">
                     <div class="card-header">
-                        <h4>How to make Search box & filter data in HTML Table from Database in PHP MySQL </h4>
+                        <h4> </h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -56,7 +56,7 @@ body{
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Staff ID</th>
                                     <th>Staff Name</th>
                                     <th>Department  </th>
                                     <th>Phone </th>
@@ -83,7 +83,7 @@ body{
                                                     <td><?= $items['name']; ?></td>
                                                     <td><?= $items['dept']; ?></td>
                                                     <td><?= $items['phone']; ?></td>
-                                                    <td><a href="book.php?id=<?php echo $items['stid']?>" button type="select" id="showTimeSlotsBtn" >Show Time </button>
+                                                    <td><a href="book.php?id=<?php echo $items['stid']?>" button type="select" id="showTimeSlotsBtn" >Show Time Table </button>
                                                    
 
 
