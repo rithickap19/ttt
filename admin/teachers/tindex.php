@@ -1,8 +1,5 @@
 <?php
-    if(!empty($_SESSION["id"])){
-      $id=$_SESSION['id'];
-     
-  }
+    session_start();
     require 'dbcon.php';
 ?>
 <!doctype html>
@@ -15,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Student CRUD</title>
+    <title>teacher CRUD</title>
 </head>
 <body>
   
@@ -27,8 +24,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Appoinments
-                            
+                        <h4>Teachers Details
+                            <a href="teacher-create.php" class="btn btn-primary float-end">Add teachers</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -37,34 +34,34 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Student Name</th>
-                                    <th>Reason</th>
-                                    <th>Period | Time</th>
-                                    <th>Status</th>
-                                    
+                                    <th>Teacher Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Department</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-                                    $query = "SELECT * FROM booking";
-                                    $query_run = mysqli_query($conn, $query);
-                                  
+                                    $query = "SELECT * FROM teacher";
+                                    $query_run = mysqli_query($con, $query);
 
                                     if(mysqli_num_rows($query_run) > 0)
                                     {
-                                        foreach($query_run as $student)
+                                        foreach($query_run as $teacher)
                                         {
                                             ?>
                                             <tr>
-                                                <td><?= $student['id']; ?></td>
-                                                <td><?= $student['sid']; ?></td>
-                                                <td><?= $student['reason']; ?></td>
-                                                <td><?= $student['period']; ?></td>
-                                                <!-- <td><?= $student['class']; ?></td> -->
+                                                <td><?= $teacher['id']; ?></td>
+                                                <td><?= $teacher['name']; ?></td>
+                                                <td><?= $teacher['email']; ?></td>
+                                                <td><?= $teacher['phone']; ?></td>
+                                                <td><?= $teacher['dept']; ?></td>
                                                 <td>
-                                                    
+                                                    <a href="teacher-view.php?id=<?= $teacher['id']; ?>" class="btn btn-info btn-sm">View</a>
+                                                    <a href="teacher-edit.php?id=<?= $teacher['id']; ?>" class="btn btn-success btn-sm">Edit</a>
                                                     <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_student" value="<?=$student['id'];?>" class="btn btn-danger btn-sm">Done</button>
+                                                        <button type="submit" name="delete_teacher" value="<?=$teacher['id'];?>" class="btn btn-danger btn-sm">Delete</button>
                                                     </form>
                                                 </td>
                                             </tr>

@@ -1,9 +1,9 @@
 <?php
-require 'dbcon.php';
+require '../dbcon.php';
 $mysqli = new mysqli("localhost","root","","ttt");
 if(isset($_POST['ttsubmit']))
 {
-    $sid=$_SESSION['id'];
+    $sid=$_POST['id'];
     $m1=mysqli_real_escape_string($conn,$_POST['m1']);
     $m2=mysqli_real_escape_string($conn,$_POST['m2']);
     $m3=mysqli_real_escape_string($conn,$_POST['m3']);
@@ -51,7 +51,7 @@ if(isset($_POST['ttsubmit']))
     // $stmt   ->bind_param("isssssssssssssssssssssssss",$sid,$m1,$m2,$m3,$m4,$m5,$t1,$t2,$t3,$t4,$t5,$w1,$w2,$w3,$w4,$w5,$th1,$th2,$th3,$th4,$th5,$f1,$f2,$f3,$f4,$f5);
     // $stmt   ->execute();
 
-header("location: teacher.php");
+header("location: timeindex.php");
 $stmt->close();
 
 

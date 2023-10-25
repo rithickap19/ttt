@@ -2,7 +2,7 @@
 require 'dbcon.php';
 if(!empty($_SESSION["id"])){
     $id=$_SESSION['id'];
-    $result=mysqli_query($conn, "SELECT * FROM treg WHERE stid=$id ");
+    $result=mysqli_query($conn, "SELECT * FROM teacher WHERE sid=$id ");
     $row=mysqli_fetch_assoc($result);
 }
 else
@@ -36,10 +36,7 @@ echo "No";
     <form class="" action="" method="">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="timetable.php">Enter Time Table</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -50,6 +47,12 @@ echo "No";
             </li>
             <li class="nav-item">
               <a class="nav-link" href="appointments.php">View Appointmnets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tupdate.php">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout</a>
             </li>
           </ul>
           <span class="navbar-text">

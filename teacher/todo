@@ -1,13 +1,3 @@
-create a  teacher page 
-create a student page 
+![Alt text](image.png)
 
-teacher page
-    upload time table
-    should show their details
-    appointment button
- 
- 
- student page
-    search bar 
-    showing staff name 
-    showing the free time of staff
+student id and staff id should be displayed on booking page.

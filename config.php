@@ -1,8 +1,8 @@
 <?php
 session_start();
-$conn= mysqli_connect("localhost","root","","ttt");
+$db= mysqli_connect("localhost","root","","ttt");
 
-if(!$conn){
+if(!$db){
     die('Connection failed'. mysqli_connect);
 }
 ?>
